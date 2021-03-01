@@ -143,7 +143,7 @@ class VisualDrivingArea extends JComponent {
 	private int SQUARE_HEIGHT = 66;
 
 	private static BufferedImage grass = ImageUtilities
-			.makeBufferedImage(ImageUtilities.blockingLoad("bin/gifs/grass.gif"));
+			.makeBufferedImage(ImageUtilities.blockingLoad("src/main/resources/grass.gif"));
 
 	private int height;
 

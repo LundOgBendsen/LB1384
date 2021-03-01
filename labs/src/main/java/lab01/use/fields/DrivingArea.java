@@ -1,5 +1,5 @@
 /*
- * Bemærk! Eclipse-projektet skal være sat op til at
+ * Bemï¿½rk! Eclipse-projektet skal vï¿½re sat op til at
  * kompilere til /bin. Ellers kan billederne ikke loades.
  * 
  */ 
@@ -225,7 +225,7 @@ class VisualDrivingArea extends JComponent {
 	private int SQUARE_HEIGHT = 66;
 
 	private static BufferedImage grass = ImageUtilities
-			.makeBufferedImage(ImageUtilities.blockingLoad("bin/gifs/grass.gif"));
+			.makeBufferedImage(ImageUtilities.blockingLoad("src/main/resources/grass.gif"));
 
 	private int height;
 

@@ -253,33 +253,33 @@ public class Car {
 
 	private static BufferedImage imageNorthOff = ImageUtilities
 			.makeBufferedImage(ImageUtilities
-					.blockingLoad("bin/gifs/car_north_off.gif"));
+					.blockingLoad("src/main/resources/car_north_off.gif"));
 
 	private static BufferedImage imageEastOff = ImageUtilities
 			.makeBufferedImage(ImageUtilities
-					.blockingLoad("bin/gifs/car_east_off.gif"));
+					.blockingLoad("src/main/resources/car_east_off.gif"));
 
 	private static BufferedImage imageSouthOff = ImageUtilities
 			.makeBufferedImage(ImageUtilities
-					.blockingLoad("bin/gifs/car_south_off.gif"));
+					.blockingLoad("src/main/resources/car_south_off.gif"));
 
 	private static BufferedImage imageWestOff = ImageUtilities
 			.makeBufferedImage(ImageUtilities
-					.blockingLoad("bin/gifs/car_west_off.gif"));
+					.blockingLoad("src/main/resources/car_west_off.gif"));
 
 	private static BufferedImage imageNorthOn = ImageUtilities
 			.makeBufferedImage(ImageUtilities
-					.blockingLoad("bin/gifs/car_north_on.gif"));
+					.blockingLoad("src/main/resources/car_north_on.gif"));
 
 	private static BufferedImage imageEastOn = ImageUtilities
 			.makeBufferedImage(ImageUtilities
-					.blockingLoad("bin/gifs/car_east_on.gif"));
+					.blockingLoad("src/main/resources/car_east_on.gif"));
 
 	private static BufferedImage imageSouthOn = ImageUtilities
 			.makeBufferedImage(ImageUtilities
-					.blockingLoad("bin/gifs/car_south_on.gif"));
+					.blockingLoad("src/main/resources/car_south_on.gif"));
 
 	private static BufferedImage imageWestOn = ImageUtilities
 			.makeBufferedImage(ImageUtilities
-					.blockingLoad("bin/gifs/car_west_on.gif"));
+					.blockingLoad("src/main/resources/car_west_on.gif"));
 }
