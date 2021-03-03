@@ -41,7 +41,7 @@ public class DrivingArea {
 
 	private int width;
 
-	public static DrivingArea singleton = new DrivingArea("Cars", 5, 5);
+	public static DrivingArea singleton = new DrivingArea("Cars", 13, 13);
 
 	Vector getCars() {
 		Vector cars = new Vector();
