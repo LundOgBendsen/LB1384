@@ -10,9 +10,10 @@ package dk.logb.javase.c03constructors.ex10;
  */
 
 public class InheritanceAndConstructors {
+	@SuppressWarnings("unused")
 	public static void main(final String[] args) {
-		PersonWithFirstName pmf = new PersonWithFirstName("Rasmus");
-		PersonWithFullName pmfn = new PersonWithFullName("Rasmus", "Lund");
+		PersonWithFirstName onlyFirst = new PersonWithFirstName("Rasmus");
+		PersonWithFullName fullName = new PersonWithFullName("Rasmus", "Lund");
 	}
 }
 
