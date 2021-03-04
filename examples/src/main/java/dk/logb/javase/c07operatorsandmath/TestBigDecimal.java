@@ -4,7 +4,7 @@ import java.math.BigDecimal;
 
 /*
  * Demonstrates a few traps related to floating point literals and BigDecimal
- * double omly has a precision of 15 decimals.
+ * double only has a precision of 15 decimals.
  * 1,111,111,111.11  dollars in indonesian rupiahs is 15,686,436,434,867,81
  * and cannot be held in a double
  * 
