@@ -2,7 +2,7 @@ package dk.logb.javase.c03constructors.ex10;
 
 /**
  * Demonstates how to call a constructor in the super class of the class
- * constructing a new object by using the key word "super".
+ * constructing a new object by using the keyword "super".
  * 
  * Super must be called in the first line of a constructor - if no such call is
  * present, the compiler will attempt to call the no-arg constructor, "super()",

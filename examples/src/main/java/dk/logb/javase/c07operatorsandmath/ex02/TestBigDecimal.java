@@ -1,4 +1,4 @@
-package dk.logb.javase.c07operatorsandmath;
+package dk.logb.javase.c07operatorsandmath.ex02;
 
 import java.math.BigDecimal;
 

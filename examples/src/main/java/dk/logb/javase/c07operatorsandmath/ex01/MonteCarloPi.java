@@ -1,4 +1,4 @@
-package dk.logb.javase.c07operatorsandmath;
+package dk.logb.javase.c07operatorsandmath.ex01;
 
 import java.util.Random;
 

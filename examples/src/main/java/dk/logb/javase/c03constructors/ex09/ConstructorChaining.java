@@ -1,7 +1,7 @@
 package dk.logb.javase.c03constructors.ex09;
 
 /**
- * Demonstrates that the key word "this" can also refer to another constructor.
+ * Demonstrates that the keyword "this" can also refer to another constructor.
  * This is often done to avoid repetitive code.
  */
 

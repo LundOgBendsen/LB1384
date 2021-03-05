@@ -1,4 +1,4 @@
-package dk.logb.javase.exceptions.ex03;
+package dk.logb.javase.c12exceptions.ex03;
 
 /*
  * Viser en RuntimeException - nemlig IndexOutOfBoundsException,

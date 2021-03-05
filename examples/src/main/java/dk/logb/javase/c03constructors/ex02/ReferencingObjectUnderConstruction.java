@@ -1,7 +1,7 @@
 package dk.logb.javase.c03constructors.ex02;
 
 /**
- * Demonstrates the use of the key word "this" as a reference to the object
+ * Demonstrates the use of the keyword "this" as a reference to the object
  * under construction.
  * The purpose is to distinguish between instance variables and local 
  * variables/parameters by using this.variableName
