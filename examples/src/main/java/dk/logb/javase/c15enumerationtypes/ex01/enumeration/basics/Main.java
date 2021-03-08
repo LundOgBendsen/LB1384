@@ -7,6 +7,7 @@ package dk.logb.javase.c15enumerationtypes.ex01.enumeration.basics;
 
 public class Main {
 
+	@SuppressWarnings("unused")
 	public static void main(final String[] args) {
 
 		/*
