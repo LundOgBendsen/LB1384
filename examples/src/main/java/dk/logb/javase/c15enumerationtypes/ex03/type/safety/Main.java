@@ -20,10 +20,10 @@ public class Main {
 			System.out.println("Stop");
 			break;
 		case YELLOW:
-			System.out.println("Gas op");
+			System.out.println("Start engine");
 			break;
 		case GREEN:
-			System.out.println("K�r");
+			System.out.println("Go");
 			break;
 		default:
 			assert false : "Unknown color";

@@ -3,9 +3,9 @@ package dk.logb.javase.c07operatorsandmath.ex01;
 import java.util.Random;
 
 /**
- * Demostrates how to find Pi using the (rather stupid) Monte Carlo algorithm.
+ * Demonstrates how to find Pi using the (rather stupid) Monte Carlo algorithm.
  * 
- * Monte Carlo algorithms are named after the city state renouned for its
+ * Monte Carlo algorithms are named after the city state renowned for its
  * casinos because they rely on chance and statistics.
  * 
  * The idea is that a random point in a 1*1 square will be either in a quarter

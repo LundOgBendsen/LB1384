@@ -9,8 +9,8 @@ public class Main {
 	public static void main(final String[] args) {
 
 		Course[] course = new Course[3];
-		course[0] = new Course("Grundlæggende Programmering");
-		course[1] = new Course("Objektorienteret Programmering");
+		course[0] = new Course("Programming fundamentals");
+		course[1] = new Course("Object oriented programming");
 		course[2] = new Course("Computer Supported Cooperative Work");
 
 		Student[] student = new Student[7];

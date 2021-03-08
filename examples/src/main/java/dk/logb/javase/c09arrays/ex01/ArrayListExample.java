@@ -10,9 +10,9 @@ public class ArrayListExample {
 	public static void main(final String[] args) {
 		ArrayList<String> v = new ArrayList<>();
 
-		v.add("hej");
-		v.add("med");
-		v.add("dig!");
+		v.add("hello");
+		v.add("my");
+		v.add("friend!");
 
 		String first = v.get(0);
 		String second = v.get(1);

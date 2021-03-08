@@ -14,7 +14,7 @@ public class Company {
 		this.name = name;
 	}
 
-	void addKursus(final Course course) {
+	void addCourse(final Course course) {
 		this.courses.add(course);
 	}
 
@@ -31,16 +31,16 @@ public class Company {
 
 	@Override
 	public String toString() {
-		/* Note that ArrayList has a sensible impementation of toString()*/
+		/* Note that ArrayList has a sensible implementation of toString()*/
 		String s = "Company[" + name + ", Courses[" + courses + "]";
 		return s;
 	}
 
 	public static void main(final String[] args) {
-		Company firma = new Company("KursusButikken ApS");
-		firma.addKursus(new Course(1, "VBA"));
-		firma.addKursus(new Course(2, "C#"));
-		firma.addKursus(new Course(3, "Java"));
+		Company firma = new Company("Course Shop Inc.");
+		firma.addCourse(new Course(1, "VBA"));
+		firma.addCourse(new Course(2, "C#"));
+		firma.addCourse(new Course(3, "Java"));
 		System.out.println(firma);
 	}
 

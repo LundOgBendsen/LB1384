@@ -19,12 +19,12 @@ public class MessageTester {
 		messageTester.messageListeners.add(new MessageRecorder());
 		messageTester.messageListeners.add(new MessageRecorder());
 		messageTester.messageListeners.add(new MessageEcho());
-		System.out.println("Sender message: 'hej'");
-		messageTester.sendMessage("Hej");
-		System.out.println("Sender message: 'med'");
-		messageTester.sendMessage("med");
-		System.out.println("Sender message: 'dig'");
-		messageTester.sendMessage("dig");
+		System.out.println("Sender message: 'Hello'");
+		messageTester.sendMessage("Hello");
+		System.out.println("Sender message: 'my'");
+		messageTester.sendMessage("my");
+		System.out.println("Sender message: 'friend'");
+		messageTester.sendMessage("friend");
 
 		System.out.println();
 		System.out.println("Printing listeners");

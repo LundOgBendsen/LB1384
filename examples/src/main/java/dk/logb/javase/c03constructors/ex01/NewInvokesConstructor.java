@@ -1,7 +1,7 @@
 package dk.logb.javase.c03constructors.ex01;
 
 /**
- * Demonstrates calling a contructor when using the "new" keyword.
+ * Demonstrates calling a constructor when using the "new" keyword.
  * Note that the constructor has the same name as the class it 
  * constructs instances of and that it has no return type.
  * Otherwise it has the same syntax as other methods including 

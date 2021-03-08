@@ -24,11 +24,11 @@ public class AmbiguousConstructorInvocation {
 class AmbiguousClass {
 	// Constructor 1
 	AmbiguousClass(final int i, final double d) {
-		System.out.println("f�rst int(" + i + "), s� double (" + d + ")");
+		System.out.println("first int(" + i + "), then double (" + d + ")");
 	}
 
 	// Constructor 2
 	AmbiguousClass(final double d, final int i) {
-		System.out.println("f�rst double(" + d + "), s� int(" + i + ")");
+		System.out.println("first double(" + d + "), then int(" + i + ")");
 	}
 }
