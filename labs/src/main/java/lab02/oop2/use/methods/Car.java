@@ -1,13 +1,16 @@
-package lab01.use.fields;
+package lab02.oop2.use.methods;
 
 import java.awt.Graphics2D;
 import java.awt.image.BufferedImage;
+import java.io.IOException;
+
+import javax.imageio.ImageIO;
 
 public class Car {
 
 	private String name;
 
-	public int direction = 0; // 0=n, 1=e, 2=s, 3=w
+	private int direction = 0; // 0=n, 1=e, 2=s, 3=w
 
 	private final int NORTH = 0;
 
@@ -17,7 +20,7 @@ public class Car {
 
 	private final int WEST = 3;
 
-	public boolean running = false;
+	private boolean running = false;
 
 	private DrivingArea drivingArea;
 
@@ -26,12 +29,11 @@ public class Car {
 	private int verticalPosition;
 
 	public Car() {
-		this("NO-NAME");
+		this("NO_NAME");
 	}
 
 	public Car(String name) {
 		this.setName(name);
-		DrivingArea.singleton.addCar(this);
 	}
 
 	public String getDirection() {
@@ -82,8 +84,6 @@ public class Car {
 					+ direction;
 			throw new IllegalStateException(msg);
 		}
-		// drivingArea.setMessage( "Car " + name + " turned left" );
-		refresh();
 	}
 
 	public void turnRight() {
@@ -99,8 +99,6 @@ public class Car {
 					+ direction;
 			throw new IllegalStateException(msg);
 		}
-		// drivingArea.setMessage( "Car " + name + " turned right" );
-		refresh();
 	}
 
 	public String getName() {
@@ -132,9 +130,6 @@ public class Car {
 		this.drivingArea = drivingArea;
 		this.horizontalPosition = x;
 		this.verticalPosition = y;
-		// drivingArea.setMessage( "Car " + name + " was added to DrivingArea "
-		// + drivingArea.getName() );
-		drivingArea.refresh();
 	}
 
 	public boolean isRunning() {
@@ -152,8 +147,6 @@ public class Car {
 		} else {
 			running = false;
 		}
-		// drivingArea.setMessage( "Car " + name + " was stopped" );
-		refresh();
 	}
 
 	public void startEngine() {
@@ -166,8 +159,6 @@ public class Car {
 		} else {
 			running = true;
 		}
-		// drivingArea.setMessage( "Car " + name + " was started" );
-		refresh();
 	}
 
 	private void move(boolean forWards, int howFar) {
@@ -182,21 +173,21 @@ public class Car {
 			int newVerticalPosition = verticalPosition;
 			int newHorizontalPosition = horizontalPosition;
 			if (forWards && direction == NORTH) {
-				newVerticalPosition--;
+				newVerticalPosition -= howFar;
 			} else if (forWards && direction == EAST) {
-				newHorizontalPosition++;
+				newHorizontalPosition += howFar;
 			} else if (forWards && direction == SOUTH) {
-				newVerticalPosition++;
+				newVerticalPosition += howFar;
 			} else if (forWards && direction == WEST) {
-				newHorizontalPosition--;
+				newHorizontalPosition -= howFar;
 			} else if ((!forWards) && direction == NORTH) {
-				newVerticalPosition++;
+				newVerticalPosition += howFar;
 			} else if ((!forWards) && direction == EAST) {
-				newHorizontalPosition--;
+				newHorizontalPosition -= howFar;
 			} else if ((!forWards) && direction == SOUTH) {
-				newVerticalPosition--;
+				newVerticalPosition -= howFar;
 			} else if ((!forWards) && direction == WEST) {
-				newHorizontalPosition++;
+				newHorizontalPosition += howFar;
 			}
 			if (this.drivingArea.isLegalPosition(newHorizontalPosition,
 					newVerticalPosition)) {
@@ -207,8 +198,6 @@ public class Car {
 				msg += "Tried to move car " + name + " out of the Driving Area";
 				throw new IllegalArgumentException(msg);
 			}
-			// drivingArea.setMessage( "Car " + name + " moved" );
-			refresh();
 		}
 	}
 
@@ -218,10 +207,6 @@ public class Car {
 
 	public void moveBackward(int howFar) {
 		move(false, howFar);
-	}
-
-	private void refresh() {
-		drivingArea.refresh();
 	}
 
 	void draw(Graphics2D g2) {
@@ -251,35 +236,27 @@ public class Car {
 
 	private int SQUARE_HEIGHT = 66;
 
-	private static BufferedImage imageNorthOff = ImageUtilities
-			.makeBufferedImage(ImageUtilities
-					.blockingLoad("src/main/resources/car_north_off.gif"));
+	private static BufferedImage imageNorthOff;
+	private static BufferedImage imageEastOff;
+	private static BufferedImage imageSouthOff;
+	private static BufferedImage imageWestOff;
+	private static BufferedImage imageNorthOn;
+	private static BufferedImage imageEastOn;
+	private static BufferedImage imageSouthOn;
+	private static BufferedImage imageWestOn;
+	static {
+		try {
+			imageNorthOff = ImageIO.read(Car.class.getResourceAsStream("/car_north_off.gif"));
+			imageEastOff = ImageIO.read(Car.class.getResourceAsStream("/car_east_off.gif"));
+			imageSouthOff = ImageIO.read(Car.class.getResourceAsStream("/car_south_off.gif"));
+			imageWestOff = ImageIO.read(Car.class.getResourceAsStream("/car_west_off.gif"));
+			imageNorthOn = ImageIO.read(Car.class.getResourceAsStream("/car_north_on.gif"));
+			imageEastOn = ImageIO.read(Car.class.getResourceAsStream("/car_east_on.gif"));
+			imageSouthOn = ImageIO.read(Car.class.getResourceAsStream("/car_south_on.gif"));
+			imageWestOn = ImageIO.read(Car.class.getResourceAsStream("/car_west_on.gif"));
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
 
-	private static BufferedImage imageEastOff = ImageUtilities
-			.makeBufferedImage(ImageUtilities
-					.blockingLoad("src/main/resources/car_east_off.gif"));
-
-	private static BufferedImage imageSouthOff = ImageUtilities
-			.makeBufferedImage(ImageUtilities
-					.blockingLoad("src/main/resources/car_south_off.gif"));
-
-	private static BufferedImage imageWestOff = ImageUtilities
-			.makeBufferedImage(ImageUtilities
-					.blockingLoad("src/main/resources/car_west_off.gif"));
-
-	private static BufferedImage imageNorthOn = ImageUtilities
-			.makeBufferedImage(ImageUtilities
-					.blockingLoad("src/main/resources/car_north_on.gif"));
-
-	private static BufferedImage imageEastOn = ImageUtilities
-			.makeBufferedImage(ImageUtilities
-					.blockingLoad("src/main/resources/car_east_on.gif"));
-
-	private static BufferedImage imageSouthOn = ImageUtilities
-			.makeBufferedImage(ImageUtilities
-					.blockingLoad("src/main/resources/car_south_on.gif"));
-
-	private static BufferedImage imageWestOn = ImageUtilities
-			.makeBufferedImage(ImageUtilities
-					.blockingLoad("src/main/resources/car_west_on.gif"));
+	}
 }

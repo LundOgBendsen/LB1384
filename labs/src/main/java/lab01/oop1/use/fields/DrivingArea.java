@@ -1,10 +1,5 @@
-/*
- * Bem�rk! Eclipse-projektet skal v�re sat op til at
- * kompilere til /bin. Ellers kan billederne ikke loades.
- * 
- */ 
 
-package lab01.use.fields;
+package lab01.oop1.use.fields;
 
 import java.awt.BorderLayout;
 import java.awt.Dimension;
@@ -15,10 +10,12 @@ import java.awt.event.ActionListener;
 import java.awt.event.WindowAdapter;
 import java.awt.event.WindowEvent;
 import java.awt.image.BufferedImage;
+import java.io.IOException;
 import java.lang.ref.WeakReference;
 import java.util.Iterator;
 import java.util.Vector;
 
+import javax.imageio.ImageIO;
 import javax.swing.JButton;
 import javax.swing.JComponent;
 import javax.swing.JFrame;
@@ -35,6 +32,7 @@ public class DrivingArea {
 
 	private String name;
 
+	@SuppressWarnings("rawtypes")
 	private Vector cars = new Vector();
 
 	private int height;
@@ -43,6 +41,7 @@ public class DrivingArea {
 
 	public static DrivingArea singleton = new DrivingArea("Cars", 13, 13);
 
+	@SuppressWarnings({ "rawtypes", "unchecked" })
 	Vector getCars() {
 		Vector cars = new Vector();
 		Iterator i = this.cars.iterator();
@@ -98,6 +97,7 @@ public class DrivingArea {
 		 */
 	}
 
+	@SuppressWarnings({ "unchecked", "rawtypes" })
 	public void addCar(Car car) {
 		if (car == null) {
 			String msg = "";
@@ -179,6 +179,7 @@ class DrivingAreaFrame {
 		visualDrivingArea.repaint();
 	}
 
+	@SuppressWarnings("rawtypes")
 	DrivingAreaFrame(String name, int width, int height, Vector cars) {
 		visualDrivingArea = new VisualDrivingArea(cars, width, height);
 
@@ -216,7 +217,9 @@ class DrivingAreaFrame {
 	}
 }
 
+@SuppressWarnings("rawtypes")
 class VisualDrivingArea extends JComponent {
+	private static final long serialVersionUID = 1L;
 
 	private Vector cars;
 
@@ -224,8 +227,14 @@ class VisualDrivingArea extends JComponent {
 
 	private int SQUARE_HEIGHT = 66;
 
-	private static BufferedImage grass = ImageUtilities
-			.makeBufferedImage(ImageUtilities.blockingLoad("src/main/resources/grass.gif"));
+	private static BufferedImage grass;
+	static {
+		try {
+			grass = ImageIO.read(Car.class.getResourceAsStream("/grass.gif"));
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
+	}
 
 	private int height;
 
@@ -252,6 +261,7 @@ class VisualDrivingArea extends JComponent {
 		}
 	}
 
+	@SuppressWarnings("unchecked")
 	Vector getCars() {
 		Vector cars = new Vector();
 		Iterator i = this.cars.iterator();

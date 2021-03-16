@@ -7,11 +7,14 @@ import java.awt.Graphics2D;
 import java.awt.event.WindowAdapter;
 import java.awt.event.WindowEvent;
 import java.awt.image.BufferedImage;
+import java.io.IOException;
 import java.util.Vector;
 
+import javax.imageio.ImageIO;
 import javax.swing.JComponent;
 import javax.swing.JFrame;
 
+@SuppressWarnings({"rawtypes", "unchecked"})
 public class DrivingArea {
 
 	private static Vector all = new Vector();
@@ -96,6 +99,7 @@ public class DrivingArea {
 	}
 }
 
+@SuppressWarnings("rawtypes")
 class DrivingAreaFrame {
 
 	private VisualDrivingArea visualDrivingArea;
@@ -134,7 +138,9 @@ class DrivingAreaFrame {
 	}
 }
 
+@SuppressWarnings("rawtypes")
 class VisualDrivingArea extends JComponent {
+	private static final long serialVersionUID = 1L;
 
 	private Vector cars;
 
@@ -142,8 +148,14 @@ class VisualDrivingArea extends JComponent {
 
 	private int SQUARE_HEIGHT = 66;
 
-	private static BufferedImage grass = ImageUtilities
-			.makeBufferedImage(ImageUtilities.blockingLoad("src/main/resources/grass.gif"));
+	private static BufferedImage grass;
+	static {
+		try {
+			grass = ImageIO.read(Car.class.getResourceAsStream("/grass.gif"));
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
+	}
 
 	private int height;
 

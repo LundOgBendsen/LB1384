@@ -1,7 +1,8 @@
-package lab01.use.fields;
+package lab01.oop1.use.fields;
 
 public class Main {
 
+	@SuppressWarnings("unused")
 	public static void main(String[] args) throws Exception {
 
 		printAndPause("READY TO RUN YOUR CODE...");

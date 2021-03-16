@@ -1,4 +1,4 @@
-package lab02.use.methods;
+package lab02.oop2.use.methods;
 
 import java.awt.BorderLayout;
 import java.awt.event.ActionEvent;
@@ -8,8 +8,6 @@ import java.awt.event.WindowEvent;
 
 import javax.swing.JButton;
 import javax.swing.JFrame;
-import javax.swing.JLabel;
-import javax.swing.JPanel;
 import javax.swing.JScrollPane;
 import javax.swing.JTextArea;
 import javax.swing.SwingUtilities;
@@ -26,7 +24,6 @@ public class Main {
 			// INSERT YOUR CODE AFTER THIS LINE //
 			// ///////////////////////////////////
 
-			
 			// ////////////////////////////////////
 			// INSERT YOUR CODE BEFORE THIS LINE //
 			// ////////////////////////////////////
@@ -63,11 +60,7 @@ public class Main {
 
 		JFrame frame;
 
-		JLabel[] msgLabels;
-
 		JButton goButton;
-
-		JPanel labelPanel;
 
 		JTextArea textArea;
 
@@ -83,8 +76,7 @@ public class Main {
 				}
 			});
 			textArea = new JTextArea();
-			textScrollPane = new JScrollPane(textArea,
-					JScrollPane.VERTICAL_SCROLLBAR_ALWAYS,
+			textScrollPane = new JScrollPane(textArea, JScrollPane.VERTICAL_SCROLLBAR_ALWAYS,
 					JScrollPane.HORIZONTAL_SCROLLBAR_NEVER);
 			frame.getContentPane().add(textScrollPane, BorderLayout.CENTER);
 			goButton = new JButton("Go!");
@@ -107,9 +99,8 @@ public class Main {
 					public void run() {
 						frame.toFront();
 						textArea.append("\n" + message);
-						textScrollPane.getVerticalScrollBar().setValue(
-								textScrollPane.getVerticalScrollBar()
-										.getMaximum());
+						textScrollPane.getVerticalScrollBar()
+								.setValue(textScrollPane.getVerticalScrollBar().getMaximum());
 					}
 				});
 			} catch (Exception e) {

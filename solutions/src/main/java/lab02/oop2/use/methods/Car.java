@@ -2,6 +2,9 @@ package lab02.oop2.use.methods;
 
 import java.awt.Graphics2D;
 import java.awt.image.BufferedImage;
+import java.io.IOException;
+
+import javax.imageio.ImageIO;
 
 public class Car {
 
@@ -206,10 +209,6 @@ public class Car {
 		move(false, howFar);
 	}
 
-	private void refresh() {
-		drivingArea.refresh();
-	}
-
 	void draw(Graphics2D g2) {
 		BufferedImage currentCar = null;
 		if (direction == NORTH && running == false) {
@@ -237,35 +236,27 @@ public class Car {
 
 	private int SQUARE_HEIGHT = 66;
 
-	private static BufferedImage imageNorthOff = ImageUtilities
-			.makeBufferedImage(ImageUtilities
-					.blockingLoad("src/main/resources/car_north_off.gif"));
+	private static BufferedImage imageNorthOff;
+	private static BufferedImage imageEastOff;
+	private static BufferedImage imageSouthOff;
+	private static BufferedImage imageWestOff;
+	private static BufferedImage imageNorthOn;
+	private static BufferedImage imageEastOn;
+	private static BufferedImage imageSouthOn;
+	private static BufferedImage imageWestOn;
+	static {
+		try {
+			imageNorthOff = ImageIO.read(Car.class.getResourceAsStream("/car_north_off.gif"));
+			imageEastOff = ImageIO.read(Car.class.getResourceAsStream("/car_east_off.gif"));
+			imageSouthOff = ImageIO.read(Car.class.getResourceAsStream("/car_south_off.gif"));
+			imageWestOff = ImageIO.read(Car.class.getResourceAsStream("/car_west_off.gif"));
+			imageNorthOn = ImageIO.read(Car.class.getResourceAsStream("/car_north_on.gif"));
+			imageEastOn = ImageIO.read(Car.class.getResourceAsStream("/car_east_on.gif"));
+			imageSouthOn = ImageIO.read(Car.class.getResourceAsStream("/car_south_on.gif"));
+			imageWestOn = ImageIO.read(Car.class.getResourceAsStream("/car_west_on.gif"));
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
 
-	private static BufferedImage imageEastOff = ImageUtilities
-			.makeBufferedImage(ImageUtilities
-					.blockingLoad("src/main/resources/car_east_off.gif"));
-
-	private static BufferedImage imageSouthOff = ImageUtilities
-			.makeBufferedImage(ImageUtilities
-					.blockingLoad("src/main/resources/car_south_off.gif"));
-
-	private static BufferedImage imageWestOff = ImageUtilities
-			.makeBufferedImage(ImageUtilities
-					.blockingLoad("src/main/resources/car_west_off.gif"));
-
-	private static BufferedImage imageNorthOn = ImageUtilities
-			.makeBufferedImage(ImageUtilities
-					.blockingLoad("src/main/resources/car_north_on.gif"));
-
-	private static BufferedImage imageEastOn = ImageUtilities
-			.makeBufferedImage(ImageUtilities
-					.blockingLoad("src/main/resources/car_east_on.gif"));
-
-	private static BufferedImage imageSouthOn = ImageUtilities
-			.makeBufferedImage(ImageUtilities
-					.blockingLoad("src/main/resources/car_south_on.gif"));
-
-	private static BufferedImage imageWestOn = ImageUtilities
-			.makeBufferedImage(ImageUtilities
-					.blockingLoad("src/main/resources/car_west_on.gif"));
+	}
 }

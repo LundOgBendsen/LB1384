@@ -1,13 +1,16 @@
-package lab02.use.methods;
+package lab01.oop1.use.fields;
 
 import java.awt.Graphics2D;
 import java.awt.image.BufferedImage;
+import java.io.IOException;
+
+import javax.imageio.ImageIO;
 
 public class Car {
 
 	private String name;
 
-	private int direction = 0; // 0=n, 1=e, 2=s, 3=w
+	public int direction = 0; // 0=n, 1=e, 2=s, 3=w
 
 	private final int NORTH = 0;
 
@@ -17,7 +20,7 @@ public class Car {
 
 	private final int WEST = 3;
 
-	private boolean running = false;
+	public boolean running = false;
 
 	private DrivingArea drivingArea;
 
@@ -26,11 +29,12 @@ public class Car {
 	private int verticalPosition;
 
 	public Car() {
-		this("NO_NAME");
+		this("NO-NAME");
 	}
 
 	public Car(String name) {
 		this.setName(name);
+		DrivingArea.singleton.addCar(this);
 	}
 
 	public String getDirection() {
@@ -53,8 +57,7 @@ public class Car {
 	private void makeSureEngineIsRunning() {
 		if (!running) {
 			String msg = "";
-			msg += "Car " + name
-					+ " tried to turn or move car without the engine running";
+			msg += "Car " + name + " tried to turn or move car without the engine running";
 			throw new IllegalStateException(msg);
 		}
 	}
@@ -62,8 +65,7 @@ public class Car {
 	private void makeSureCarIsOnDrivingArea() {
 		if (drivingArea == null) {
 			String msg = "";
-			msg += "Tried work with car " + name
-					+ " which is not on a Driving Area";
+			msg += "Tried work with car " + name + " which is not on a Driving Area";
 			throw new IllegalStateException(msg);
 		}
 	}
@@ -77,10 +79,11 @@ public class Car {
 			this.direction = this.direction - 1;
 		} else {
 			String msg = "";
-			msg += "Car " + name + " is going in an illegal direction "
-					+ direction;
+			msg += "Car " + name + " is going in an illegal direction " + direction;
 			throw new IllegalStateException(msg);
 		}
+		// drivingArea.setMessage( "Car " + name + " turned left" );
+		refresh();
 	}
 
 	public void turnRight() {
@@ -92,10 +95,11 @@ public class Car {
 			this.direction = this.direction + 1;
 		} else {
 			String msg = "";
-			msg += "Car " + name + " is going in an illegal direction "
-					+ direction;
+			msg += "Car " + name + " is going in an illegal direction " + direction;
 			throw new IllegalStateException(msg);
 		}
+		// drivingArea.setMessage( "Car " + name + " turned right" );
+		refresh();
 	}
 
 	public String getName() {
@@ -127,6 +131,9 @@ public class Car {
 		this.drivingArea = drivingArea;
 		this.horizontalPosition = x;
 		this.verticalPosition = y;
+		// drivingArea.setMessage( "Car " + name + " was added to DrivingArea "
+		// + drivingArea.getName() );
+		drivingArea.refresh();
 	}
 
 	public boolean isRunning() {
@@ -134,60 +141,34 @@ public class Car {
 		return this.running;
 	}
 
-	public void stopEngine() {
-		makeSureCarIsOnDrivingArea();
-		if (this.running == false) {
-			String msg = "";
-			msg += "Tried to turn off engine of car " + name
-					+ ", but engine is already off";
-			throw new IllegalArgumentException(msg);
-		} else {
-			running = false;
-		}
-	}
-
-	public void startEngine() {
-		makeSureCarIsOnDrivingArea();
-		if (running == true) {
-			String msg = "";
-			msg += "Tried to turn on engine of " + name
-					+ ", but engine is already running";
-			throw new IllegalArgumentException(msg);
-		} else {
-			running = true;
-		}
-	}
-
 	private void move(boolean forWards, int howFar) {
 		makeSureCarIsOnDrivingArea();
 		makeSureEngineIsRunning();
 		if (howFar <= 0) {
 			String msg = "";
-			msg += "Tried to move 0 or less with car " + name
-					+ ", which isn't possible";
+			msg += "Tried to move 0 or less with car " + name + ", which isn't possible";
 			throw new IllegalArgumentException(msg);
 		} else {
 			int newVerticalPosition = verticalPosition;
 			int newHorizontalPosition = horizontalPosition;
 			if (forWards && direction == NORTH) {
-				newVerticalPosition -= howFar;
+				newVerticalPosition--;
 			} else if (forWards && direction == EAST) {
-				newHorizontalPosition += howFar;
+				newHorizontalPosition++;
 			} else if (forWards && direction == SOUTH) {
-				newVerticalPosition += howFar;
+				newVerticalPosition++;
 			} else if (forWards && direction == WEST) {
-				newHorizontalPosition -= howFar;
+				newHorizontalPosition--;
 			} else if ((!forWards) && direction == NORTH) {
-				newVerticalPosition += howFar;
+				newVerticalPosition++;
 			} else if ((!forWards) && direction == EAST) {
-				newHorizontalPosition -= howFar;
+				newHorizontalPosition--;
 			} else if ((!forWards) && direction == SOUTH) {
-				newVerticalPosition -= howFar;
+				newVerticalPosition--;
 			} else if ((!forWards) && direction == WEST) {
-				newHorizontalPosition += howFar;
+				newHorizontalPosition++;
 			}
-			if (this.drivingArea.isLegalPosition(newHorizontalPosition,
-					newVerticalPosition)) {
+			if (this.drivingArea.isLegalPosition(newHorizontalPosition, newVerticalPosition)) {
 				this.verticalPosition = newVerticalPosition;
 				this.horizontalPosition = newHorizontalPosition;
 			} else {
@@ -195,6 +176,8 @@ public class Car {
 				msg += "Tried to move car " + name + " out of the Driving Area";
 				throw new IllegalArgumentException(msg);
 			}
+			// drivingArea.setMessage( "Car " + name + " moved" );
+			refresh();
 		}
 	}
 
@@ -229,43 +212,34 @@ public class Car {
 		} else if (direction == WEST && running == true) {
 			currentCar = imageWestOn;
 		}
-		g2.drawImage(currentCar, null, horizontalPosition * SQUARE_WIDTH,
-				verticalPosition * SQUARE_HEIGHT);
+		g2.drawImage(currentCar, null, horizontalPosition * SQUARE_WIDTH, verticalPosition * SQUARE_HEIGHT);
 	}
 
 	private int SQUARE_WIDTH = 66;
 
 	private int SQUARE_HEIGHT = 66;
 
-	private static BufferedImage imageNorthOff = ImageUtilities
-			.makeBufferedImage(ImageUtilities
-					.blockingLoad("src/main/resources/car_north_off.gif"));
+	private static BufferedImage imageNorthOff;
+	private static BufferedImage imageEastOff;
+	private static BufferedImage imageSouthOff;
+	private static BufferedImage imageWestOff;
+	private static BufferedImage imageNorthOn;
+	private static BufferedImage imageEastOn;
+	private static BufferedImage imageSouthOn;
+	private static BufferedImage imageWestOn;
+	static {
+		try {
+			imageNorthOff = ImageIO.read(Car.class.getResourceAsStream("/car_north_off.gif"));
+			imageEastOff = ImageIO.read(Car.class.getResourceAsStream("/car_east_off.gif"));
+			imageSouthOff = ImageIO.read(Car.class.getResourceAsStream("/car_south_off.gif"));
+			imageWestOff = ImageIO.read(Car.class.getResourceAsStream("/car_west_off.gif"));
+			imageNorthOn = ImageIO.read(Car.class.getResourceAsStream("/car_north_on.gif"));
+			imageEastOn = ImageIO.read(Car.class.getResourceAsStream("/car_east_on.gif"));
+			imageSouthOn = ImageIO.read(Car.class.getResourceAsStream("/car_south_on.gif"));
+			imageWestOn = ImageIO.read(Car.class.getResourceAsStream("/car_west_on.gif"));
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
 
-	private static BufferedImage imageEastOff = ImageUtilities
-			.makeBufferedImage(ImageUtilities
-					.blockingLoad("src/main/resources/car_east_off.gif"));
-
-	private static BufferedImage imageSouthOff = ImageUtilities
-			.makeBufferedImage(ImageUtilities
-					.blockingLoad("src/main/resources/car_south_off.gif"));
-
-	private static BufferedImage imageWestOff = ImageUtilities
-			.makeBufferedImage(ImageUtilities
-					.blockingLoad("src/main/resources/car_west_off.gif"));
-
-	private static BufferedImage imageNorthOn = ImageUtilities
-			.makeBufferedImage(ImageUtilities
-					.blockingLoad("src/main/resources/car_north_on.gif"));
-
-	private static BufferedImage imageEastOn = ImageUtilities
-			.makeBufferedImage(ImageUtilities
-					.blockingLoad("src/main/resources/car_east_on.gif"));
-
-	private static BufferedImage imageSouthOn = ImageUtilities
-			.makeBufferedImage(ImageUtilities
-					.blockingLoad("src/main/resources/car_south_on.gif"));
-
-	private static BufferedImage imageWestOn = ImageUtilities
-			.makeBufferedImage(ImageUtilities
-					.blockingLoad("src/main/resources/car_west_on.gif"));
+	}
 }
