@@ -1,6 +1,7 @@
 package lab20.fejl5.handling.exceptions;
 
 public class MyUncheckedException extends RuntimeException {
+	private static final long serialVersionUID = 1L;
 
     public MyUncheckedException() {
         super();

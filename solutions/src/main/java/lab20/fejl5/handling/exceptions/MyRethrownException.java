@@ -1,8 +1,9 @@
 package lab20.fejl5.handling.exceptions;
 
 public class MyRethrownException extends Exception {
+	private static final long serialVersionUID = 1L;
 
-    public MyRethrownException() {
+	public MyRethrownException() {
         super();
     }
 
