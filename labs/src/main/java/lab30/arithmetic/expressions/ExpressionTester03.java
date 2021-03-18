@@ -4,7 +4,7 @@ public class ExpressionTester03 {
 
     public static void main(String[] args) {
         
-        // Beregning af udtrykket:
+        // Calculation of the Expression :
         // (324.0 - (((3.0 + 4.0) * 2.0) / 5.0))
         
 /*
@@ -13,8 +13,8 @@ public class ExpressionTester03 {
         Expression e3 = new Division(e2, new Number(5));
         Expression e4 = new Subtraction(new Number(324), e3);
 
-        System.out.println("Udtrykket : " + e4);
-        System.out.println("Beregner Java til: " + e4.calculate());
+        System.out.println("Expression : " + e4);
+        System.out.println("Calculated as : " + e4.calculate());
 */        
     }
 }

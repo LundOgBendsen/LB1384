@@ -19,19 +19,19 @@ public class SimpleTracing {
 }
 
 /*
- * (a) Fejltypen er java.lang.NullPointerException
- * (b) Der står fx, at hvis man prøver at kalde en instans-metode på 
- * 	   et null-objekt, så resulterer det i en NullPointerException, 
- *     hvilket er netop hvad vi gør på stringIn i linie 16.
- * (c) Fejlen opstod i linie 16 ((SimpleCatching.java:16) og er herefter
- * 	   "boblet" videre op til linie 11 og senere til linie 7.
- * (d) Henvisningen til SimpleTracing.java:16 er med, fordi det var her 
- *     fejlen opstod.
- *     Henvisningen til SimpleTracing.java:11 er med, fordi det var i 
- *     denne linie, at metoden convertToUpperCase blev kaldt, og dette
- *     metodekald resulterede i en fejl.
- *     Henvisningen til SimpleTracing.java:7 er med, fordi det var i 
- *     denne linie, at metoden printInUpperCase blev kaldt, og dette
- *     metodekald resulterede i en fejl (fordi metoden kaldte en anden
- *     metode der resulterede i en fejl).
+ * (a) The error is java.lang.NullPointerException
+ * (b) It sya that if you call a method on a null reference it will 
+ *     result in a NullPointerException, and that is just what we do 
+ *     in line 16 with stringIn. 
+ * (c) The error arose in line 16 ((SimpleCatching.java:16) and then 
+ *     propagated to line 11 and line 7
+ * (d) SimpleTracing.java:16 is mentioned because this is where the 
+ *     error happened.
+ *     SimpleTracing.java:11 is mentioned because this is where
+ *     the method convertToUpperCase was called and ultimately resulted
+ *     in the error.
+ *     SimpleTracing.java:7 is mentioned because this is where the method
+ *     printInUpperCase was called and this ultimately resulted in an
+ *     error (because the method called another method that resulted in
+ *     an error)
  */

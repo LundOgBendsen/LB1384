@@ -1,51 +1,44 @@
 package lab04.oop4.define.methods;
 
-public class Person
-{
+import java.time.LocalDate;
 
-  public String firstName = "Unknown";
+public class Person {
 
-  public String lastName = "Unknown";
+	public String firstName = "Unknown";
 
-  public int birthYear = -1;
+	public String lastName = "Unknown";
 
-  public static int totalNumberOfPersons;
+	public int birthYear = -1;
 
-  // (a) toString-metode der laver String på formen:
-  // Person[firstName: Rasmus, lastName: Lund, birthYear: 1973]
-  @Override
-  public String toString()
-  {
-    String result = "Person[firstName: " + firstName;
-    result += ", lastName: " + lastName;
-    result += ", birthYear: " + birthYear + "]";
-    return result;
-  }
+	public static int totalNumberOfPersons;
 
-  // (b)
-  public int getAgeAt(final int atYear)
-  {
-    int result = atYear - birthYear;
-    if (result < 0)
-    {
-      result = 0;
-    }
-    return result;
-  }
+	@Override
+	public String toString() {
+		String result = "Person[firstName: " + firstName;
+		result += ", lastName: " + lastName;
+		result += ", birthYear: " + birthYear + "]";
+		return result;
+	}
 
-  // (c)
-  public int getCurrentAge()
-  {
-    java.util.Calendar c = java.util.Calendar.getInstance();
-    int currentYear = c.get(java.util.Calendar.YEAR);
-    return getAgeAt(currentYear);
-  }
+	// (b)
+	public int getAgeAt(final int atYear) {
+		int result = atYear - birthYear;
+		if (result < 0) {
+			result = 0;
+		}
+		return result;
+	}
 
-  // (d)
-  public void setFullName(final String firstName, final String lastName)
-  {
-    this.firstName = firstName;
-    this.lastName = lastName;
-  }
+	// (c)
+	public int getCurrentAge() {
+		int currentYear = LocalDate.now().getYear();
+		return getAgeAt(currentYear);
+	}
+
+	// (d)
+	public void setFullName(final String firstName, final String lastName) {
+		this.firstName = firstName;
+		this.lastName = lastName;
+	}
 
 }

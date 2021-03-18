@@ -1,8 +1,10 @@
-package lab08.opmat2.define.dice;
+package lab08.define.die;
 
 public class DiceTest {
 
     public static void main(String[] args) {
+
+/*
 		System.out.println();
         Dice d6 = new Dice(6);
         System.out.println("d6.toString() " + d6.toString());
@@ -28,5 +30,6 @@ public class DiceTest {
         System.out.println("Roll 6 with d4 resulted in " + d4.roll());
         System.out.println("Roll 7 with d4 resulted in " + d4.roll());
         System.out.println("Roll 8 with d4 resulted in " + d4.roll());
+*/
     }
 }

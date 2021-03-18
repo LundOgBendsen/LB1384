@@ -2,9 +2,10 @@ package lab07.opmat1.define.fraction;
 
 public class Util {
 
-	// Returnerer det største tal, der går op i begge tal
-	public static int greatestCommonDenominator(int firstNumber,
-			int secondNumber) {
+	/**
+	 * @returns the largest number that both numbers are divisable by
+	 */
+	public static int greatestCommonDenominator(int firstNumber, int secondNumber) {
 		int tempNumber;
 		while (firstNumber > 0) {
 			if (firstNumber < secondNumber) {
