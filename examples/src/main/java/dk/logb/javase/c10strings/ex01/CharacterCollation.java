@@ -20,18 +20,14 @@ public class CharacterCollation {
 		
 		/* Sort the strings using the default collation and print them */
 		Collections.sort(a);
-		for (String string : a) {
-			System.out.println(string);
-		}
+		System.out.println(a);
 		
 		System.out.println();
 		
 		/* Now create a Danish Collator and sort the strings with it */
 		Collator col = Collator.getInstance(new Locale("da", "DK"));
 		Collections.sort(a, col);
-		for (String string : a) {
-			System.out.println(string);
-		}
+		System.out.println(a);
 		
 		/* Note that É is now considered equivalent to E and Aa to Å */
 

@@ -1,4 +1,4 @@
-package lab06.cons2.monitor.gc;
+package lab06.garb1.monitor.gc;
 
 public class PersonTest {
 

@@ -1,4 +1,4 @@
-package lab08.define.die;
+package lab08.define.dice;
 
 public class DiceTest {
 
