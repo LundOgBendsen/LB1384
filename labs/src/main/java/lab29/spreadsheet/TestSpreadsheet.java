@@ -3,7 +3,7 @@ package lab29.spreadsheet;
 public class TestSpreadsheet {
 
     public static void main(String[] args) {
-        System.out.println("==<< Laver tomt regneark >>==");
+        System.out.println("==<< Creating empty spreadsheet >>==");
         Spreadsheet s = new Spreadsheet(5, 6);
         System.out.println(s);
 

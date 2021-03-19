@@ -11,7 +11,7 @@
  * Finally i main
  * Afslutter main
  * Der kastes ingen exceptions nogen steder,
- * og finally køres altid.
+ * og finally kï¿½res altid.
  * =========================================================
  * Ved n = 2 udskriver programmet:
  * Starter main
@@ -26,7 +26,7 @@
  * fejlen gribes ikke i metoden b eller a, hvorfor
  * den bobler hele vejen op til main-metoden, hvor
  * den gribes af catch-blokken, der griber fejl af
- * typen MyException. Finally køres altid.
+ * typen MyException. Finally kï¿½res altid.
  * =========================================================
  * Ved n = 3 udskriver programmet:
  * Starter main
@@ -40,8 +40,8 @@
  * Finally i main
  * Afslutter main
  * En fejl af typen MyException kastes i metoden c,
- * fejlen gribes i metoden b, hvorfor både b og a
- * afslutter på normal vis. Finally køres altid.
+ * fejlen gribes i metoden b, hvorfor bï¿½de b og a
+ * afslutter pï¿½ normal vis. Finally kï¿½res altid.
  * =========================================================
  * Ved n = 4 udskriver programmet:
  * Starter main
@@ -55,94 +55,73 @@
  * gribes af catch-blokken, der griber fejl af typen
  * Exception (og ikke allerede af den, der griber fejl
  * af typen MyException, da Exception ikke er en sub-type
- * af MyException). Finally køres altid.
+ * af MyException). Finally kï¿½res altid.
  */
 
 package lab21.fejl6.exception.hierarchies;
 
-public class ExceptionStuff
-{
+public class ExceptionStuff {
 
-  static boolean throwMyException = false;
+	static boolean throwMyException = false;
 
-  static boolean catchMyException = false;
+	static boolean catchMyException = false;
 
-  static boolean throwException = false;
+	static boolean throwException = false;
 
-  static int n = 1; // herefter 2, 3 eller 4.
+	static int n = 1; // herefter 2, 3 eller 4.
 
-  public static void main(final String[] args)
-  {
-    System.out.println("Starter main");
-    try
-    {
-      switch (n)
-      {
-        case 4:
-          throwException = true;
-        case 3:
-          catchMyException = true;
-        case 2:
-          throwMyException = true;
-      }
-      a();
-    }
-    catch (MyException e)
-    {
-      System.out.println("Greb MyException i main");
-    }
-    catch (Exception e)
-    {
-      System.out.println("Greb Exception i main");
-    }
-    finally
-    {
-      System.out.println("Finally i main");
-    }
-    System.out.println("Afslutter main");
-  }
+	public static void main(final String[] args) {
+		System.out.println("Starter main");
+		try {
+			switch (n) {
+			case 4:
+				throwException = true;
+			case 3:
+				catchMyException = true;
+			case 2:
+				throwMyException = true;
+			}
+			a();
+		} catch (MyException e) {
+			System.out.println("Greb MyException i main");
+		} catch (Exception e) {
+			System.out.println("Greb Exception i main");
+		} finally {
+			System.out.println("Finally i main");
+		}
+		System.out.println("Afslutter main");
+	}
 
-  static void a() throws Exception
-  {
-    System.out.println("Starter a");
-    if (throwException == true)
-    {
-      System.out.println("Kaster Exception i a");
-      throw new Exception();
-    }
-    b();
-    System.out.println("Afslutter a");
-  }
+	static void a() throws Exception {
+		System.out.println("Starter a");
+		if (throwException == true) {
+			System.out.println("Kaster Exception i a");
+			throw new Exception();
+		}
+		b();
+		System.out.println("Afslutter a");
+	}
 
-  static void b() throws MyException
-  {
-    System.out.println("Starter b");
-    if (catchMyException == true)
-    {
-      try
-      {
-        c();
-      }
-      catch (MyException e)
-      {
-        System.out.println("Greb MyException i b");
-      }
-    }
-    else
-    {
-      c();
-    }
-    System.out.println("Afslutter b");
-  }
+	static void b() throws MyException {
+		System.out.println("Starter b");
+		if (catchMyException == true) {
+			try {
+				c();
+			} catch (MyException e) {
+				System.out.println("Greb MyException i b");
+			}
+		} else {
+			c();
+		}
+		System.out.println("Afslutter b");
+	}
 
-  static void c() throws MyException
-  {
-    System.out.println("Starter c");
-    if (throwMyException == true)
-    {
-      System.out.println("Kaster MyException i c");
-      throw new MyException();
-    }
-    System.out.println("Afslutter c");
-  }
+	static void c() throws MyException {
+		System.out.println("Starter c");
+		if (throwMyException == true) {
+			System.out.println("Kaster MyException i c");
+			throw new MyException();
+		}
+		System.out.println("Afslutter c");
+	}
 }

@@ -4,24 +4,24 @@ public class FourWaysOfHandlingExceptions {
 
     public static void main(String[] args) {
 
-        // Illustrerer gribning og håndtering af en fejl
+        /* Demonstrates how to catch and handle an exception */
         catchAndHandleException();
 
-        // Illustrerer gribning af en fejl og konvertering til en ny
+        /* Demonstrates how to catch and convert one exception into another */
         try {
             catchAndConvertException();
         } catch (MyRethrownException e) {
             System.out.println("Caught converted exception in main");
         }
 
-        // Illustrerer viderekastning af en fejl
+        /* Demonstrates how to re-throw an exception */
         try {
             rethrowException();
         } catch (MyCheckedException e1) {
             System.out.println("Caught rethrown exception");
         }
 
-        // Illustrerer ignorering af en fejl
+        /* Demonstrates ignoring an exception */
         ignoreException();
     }
 
@@ -30,7 +30,6 @@ public class FourWaysOfHandlingExceptions {
             throwMyCheckedException();
         } catch (MyCheckedException e) {
             System.out.println("Caught and handled exception");
-            ;
         }
     }
 

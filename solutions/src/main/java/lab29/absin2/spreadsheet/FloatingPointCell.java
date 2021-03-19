@@ -1,24 +1,20 @@
 package lab29.absin2.spreadsheet;
 
-public class FloatingPointCell extends Cell
-{
+public class FloatingPointCell extends Cell {
 
-  private final double value;
+	private final double value;
 
-  public FloatingPointCell(final double value)
-  {
-    this.value = value;
-  }
+	public FloatingPointCell(final double value) {
+		this.value = value;
+	}
 
-  @Override
-  public double getNumberValue()
-  {
-    return value;
-  }
+	@Override
+	public double getNumberValue() {
+		return value;
+	}
 
-  @Override
-  public String toString()
-  {
-    return "" + value;
-  }
+	@Override
+	public String toString() {
+		return "" + value;
+	}
 }

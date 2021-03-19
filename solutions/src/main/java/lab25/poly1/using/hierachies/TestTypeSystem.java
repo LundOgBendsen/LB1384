@@ -1,91 +1,84 @@
 package lab25.poly1.using.hierachies;
 
-public class TestTypeSystem
-{
+public class TestTypeSystem {
 
-  @SuppressWarnings("unused")
-public static void main(final String[] args)
-  {
-    // (a) At en Object-reference kan pege p� alle typer instanser
-    Object[] objects = new Object[6];
-    objects[0] = new Animal();
-    objects[1] = new Reptile();
-    objects[2] = new Mammal();
-    objects[3] = new Snake();
-    objects[4] = new Cat();
-    objects[5] = new Dog();
+	@SuppressWarnings("unused")
+	public static void main(final String[] args) {
+		/* (a) An object reference can poi to all types of objects */
+		Object[] objects = new Object[6];
+		objects[0] = new Animal();
+		objects[1] = new Reptile();
+		objects[2] = new Mammal();
+		objects[3] = new Snake();
+		objects[4] = new Cat();
+		objects[5] = new Dog();
 
-    // (b) At en reference kan pege p� objekter af sin egen type
-    Animal a01 = new Animal();
-    Reptile a02 = new Reptile();
-    Dog a03 = new Dog();
+		/* (b) A reference can point to objects of its own type */
+		Animal a01 = new Animal();
+		Reptile a02 = new Reptile();
+		Dog a03 = new Dog();
 
-    // (c) At en reference kan pege p� instanser af sine subtyper
-    Animal a04 = new Reptile();
-    Animal a05 = new Dog();
-    Mammal a06 = new Cat();
+		/* (c) A reference can point o instances of its subtypes */
+		Animal a04 = new Reptile();
+		Animal a05 = new Dog();
+		Mammal a06 = new Cat();
 
-    // (d) At en reference ikke kan pege p� et objekt, som hverken
-    // er af samme type som referencens type, eller en subtype af
-    // referencens type (burde give kompileringsfejl)
+		/* (d) A reference cannot point to an object that is neither the same type or 
+		 * a sub type of the reference type 
+		 */
 
-    // Dog a07 = new Animal();
-    // Snake a08 = new Dog();
-    // Cat a08 = new Dog();
-    // Mammal a09 = new Object();
+		// Dog a07 = new Animal();
+		// Snake a08 = new Dog();
+		// Cat a08 = new Dog();
+		// Mammal a09 = new Object();
 
-    // (e) At metoder nedarves
-    Mammal a10 = new Dog();
-    a10.run(); // udskriver: Mammal is running
+		/* (e) Methods are inherited */
+		Mammal a10 = new Dog();
+		a10.run(); // udskriver: Mammal is running
 
-    // (f) At det er objektets type (og ikke referencens type) der
-    // bestemmer hvilken metode der bliver k�rt (overriding, polymorfi og
-    // dynamic binding)
-    Mammal a11 = new Cat();
-    a11.run(); // udskriver: Cat is running (og ikke Mammal is running)
+		/* (f) It is the objects type and not the reference type that determines which method is called
+		 * - overriding, polymorphism and dynamic binding
+		 */
+		Mammal a11 = new Cat();
+		a11.run(); // udskriver: Cat is running (og ikke Mammal is running)
 
-    // (g) At man ikke kan kalde en metode via en reference, hvis
-    // referencen ikke kender metoden (burde give kompileringsfejl �
-    // udkomment�r linien)
-    Animal a12 = new Dog();
-    // a12.bark(); //Animal kender ikke bark()-metoden
-    Object a13 = new Cat();
-    // a13.run(); //Object kender ikke run()-metoden
+		/* (g) It is not possible to calll a method on a reference that does not know the method */
+		Animal a12 = new Dog();
+		// a12.bark(); //Animal does not know the bark() method
+		Object a13 = new Cat();
+		// a13.run(); //Object does not know the run() method
 
-    // (h) Lav et eksempel p� et eksplicit upcast (selvom det er
-    // un�dvendigt)
-    Animal a14 = new Dog();
-    Object a15 = new Snake();
-    Dog a16 = new Dog();
-    Animal a17 = a16;
-    Object a18 = a17;
+		/* (h) Example of unnecessary eksplicit upcast */
+		Animal a14 = new Dog();
+		Object a15 = new Snake();
+		Dog a16 = new Dog();
+		Animal a17 = a16;
+		Object a18 = a17;
 
-    // (i) Lav et eksempel p� et implicit/automatisk upcast
-    Animal a19 = new Dog(); // Dog-instansen upcastes til Animal
-    Object a20 = new Snake(); // Snake-instansen upcastes til Object
-    Dog a21 = new Dog();
-    Animal a22 = a21; // Dog-instansen upcastes fra Dog til Animal
-    Object a23 = a22; // Dog-instansen upcastes fra Animal til Object
+		/* (i) Examples of implicit upcast */
+		Animal a19 = new Dog(); // The Dog instance is upcast to Animal
+		Object a20 = new Snake(); // The Snake instance is upcast to Object
+		Dog a21 = new Dog();
+		Animal a22 = a21; // The Dog instance is upcast from Dog to Animal
+		Object a23 = a22; // The Dog instance is upcast from Animal to Object
 
-    // (j) Lav et eksempel p� et ekslicit downcast
-    Animal a24 = new Snake(); // Snake-objekt upcastes til typen Animal
-    Reptile a25 = (Reptile) a24; // Snake-objekt downcastes fra Animal til Reptile
-    Snake a26 = (Snake) a25; // Snake-objekt downcastes fra Reptile til Snake
+		/* (j) Eksempel of explicit downcast */
+		Animal a24 = new Snake(); // Snake object upcast to Animal
+		Reptile a25 = (Reptile) a24; // Snake object downcast from Animal to Reptile
+		Snake a26 = (Snake) a25; // Snake object downcast from Reptile to Snake
 
-    // (k) Lav et eksempel, der viser, at downcasts skal v�re eksplicitte
-    Animal a27 = new Snake(); // Snake-objekt upcastes til typen Animal
-    // Snake a28 = a27; //Downcast fra Animal til Snake skal v�re eksplicit
+		/* (k) An example showing that downcasts must be explicit */
+		Animal a27 = new Snake(); // Snake object upcast to Animal
+		// Snake a28 = a27; //Downcast must be explicit
 
-    // (l) Lav et eksempel, der viser et downcast, som g�r galt
-    // (b�r give en k�retidsfejl i form af en ClassCastException)
-    Mammal a28 = new Cat();
-    try
-    {
-      Dog a29 = (Dog) a28; // Smider ClassCastException under k�rsel
-    }
-    catch (ClassCastException e)
-    {
-      System.out.println("Greb en forventet ClassCastException");
-    }
-  }
+		/* (l) An example of an erroneous downcast
+		* (Should result in a ClassCastException)
+		*/
+		Mammal a28 = new Cat();
+		try {
+			Dog a29 = (Dog) a28; // throws ClassCastException runtime
+		} catch (ClassCastException e) {
+			System.out.println("Greb en forventet ClassCastException");
+		}
+	}
 }
