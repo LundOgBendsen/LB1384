@@ -1,4 +1,4 @@
-package c08forl1.use.loops;
+package c08loop1.use.loops;
 
 import java.io.BufferedReader;
 import java.io.IOException;

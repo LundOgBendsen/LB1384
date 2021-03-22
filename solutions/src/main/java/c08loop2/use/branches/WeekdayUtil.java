@@ -1,4 +1,4 @@
-package c08forl2.use.branches;
+package c08loop2.use.branches;
 
 public class WeekdayUtil {
 

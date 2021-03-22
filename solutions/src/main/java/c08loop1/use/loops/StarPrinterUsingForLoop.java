@@ -1,12 +1,11 @@
 /*
  * L�sning p� �velse 10 - Indlejrede l�kker (1)
  */
-package c08forl1.use.loops;
+package c08loop1.use.loops;
 
-public class StarPrinterUsingWhile {
+public class StarPrinterUsingForLoop {
 
 	public static void main(String[] args) {
-
 		int height = askUserForTriangleHeight();
 		printTriangleOfStars(height);
 	}
@@ -19,23 +18,15 @@ public class StarPrinterUsingWhile {
 	}
 
 	private static void printTriangleOfStars(int height) {
-		int j = 1;
-		while (j <= height) {
-			String line;
-			line = printCharRepeatedly(' ', height - j);
-			line += printCharRepeatedly('*', j);
-			System.out.println(line);
-			j++;
+		for (int i = height; i > 0; i--) {
+			printLineOfStars(i);
+			System.out.println();
 		}
 	}
 
-	private static String printCharRepeatedly(char c, int count) {
-		String result = "";
-		int i = 0;
-		while (i < count) {
-			result += c;
-			i++;
+	private static void printLineOfStars(int length) {
+		for (int j = 0; j < length; j++) {
+			System.out.print("*");
 		}
-		return result;
 	}
 }
