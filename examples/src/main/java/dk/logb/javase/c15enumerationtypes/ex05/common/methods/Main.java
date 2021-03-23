@@ -1,8 +1,8 @@
-package dk.logb.javase.c15enumerationtypes.ex04.common.methods;
+package dk.logb.javase.c15enumerationtypes.ex05.common.methods;
 
-import static dk.logb.javase.c15enumerationtypes.ex04.common.methods.TrafficSignal.GREEN;
-import static dk.logb.javase.c15enumerationtypes.ex04.common.methods.TrafficSignal.RED;
-import static dk.logb.javase.c15enumerationtypes.ex04.common.methods.TrafficSignal.YELLOW;
+import static dk.logb.javase.c15enumerationtypes.ex05.common.methods.TrafficSignal.GREEN;
+import static dk.logb.javase.c15enumerationtypes.ex05.common.methods.TrafficSignal.RED;
+import static dk.logb.javase.c15enumerationtypes.ex05.common.methods.TrafficSignal.YELLOW;
 import static java.lang.System.identityHashCode;
 import static java.lang.System.out;
 

@@ -1,4 +1,4 @@
-package dk.logb.javase.c15enumerationtypes.ex07;
+package dk.logb.javase.c15enumerationtypes.ex03.enumerations.are.self.documenting;
 
 /**
  * Demonstrates that enums are much more self-documenting than booleans

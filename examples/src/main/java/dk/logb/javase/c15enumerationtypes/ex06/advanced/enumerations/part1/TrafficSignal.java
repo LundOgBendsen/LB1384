@@ -1,4 +1,4 @@
-package dk.logb.javase.c15enumerationtypes.ex05.advanced.enumerations.part1;
+package dk.logb.javase.c15enumerationtypes.ex06.advanced.enumerations.part1;
 
 import static java.lang.Math.abs;
 

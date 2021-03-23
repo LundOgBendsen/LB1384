@@ -1,4 +1,4 @@
-package dk.logb.javase.c15enumerationtypes.ex06.advanced.enumerations.part2;
+package dk.logb.javase.c15enumerationtypes.ex07.advanced.enumerations.part2;
 
 public enum TrafficSignal {
 

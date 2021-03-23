@@ -1,6 +1,6 @@
-package dk.logb.javase.c15enumerationtypes.ex03.type.safety;
+package dk.logb.javase.c15enumerationtypes.ex04.type.safety;
 
-import static dk.logb.javase.c15enumerationtypes.ex03.type.safety.TrafficSignal.YELLOW;
+import static dk.logb.javase.c15enumerationtypes.ex04.type.safety.TrafficSignal.YELLOW;
 
 public class Main {
 
