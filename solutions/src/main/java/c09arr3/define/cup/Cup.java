@@ -2,9 +2,9 @@ package c09arr3.define.cup;
 
 public class Cup {
 
-	Dice[] dice;
+	Die[] dice;
 
-	void setDiceToUse(final Dice[] dice) {
+	void setDiceToUse(final Die[] dice) {
 		this.dice = dice;
 	}
 

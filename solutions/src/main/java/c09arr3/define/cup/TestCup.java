@@ -5,9 +5,9 @@ public class TestCup {
 	public static void main(final String[] args) {
 		System.out.println();
 
-		Dice[] diceToPutInCup = new Dice[4];
+		Die[] diceToPutInCup = new Die[4];
 		for (int n = 0; n < 4; n++) {
-			diceToPutInCup[n] = new Dice(6);
+			diceToPutInCup[n] = new Die(6);
 		}
 
 		Cup myCup = new Cup();
