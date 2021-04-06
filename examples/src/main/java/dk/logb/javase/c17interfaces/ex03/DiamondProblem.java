@@ -12,6 +12,16 @@ public class DiamondProblem implements I1, I2 {
 
 }
 
+interface DiamondInterface extends I1, I2 {
+	/* same problem */
+	@Override
+	default void a() {
+		I1.super.a();
+	}
+	
+	static void b() {}
+}
+
 interface I1 {
 	default void a() {
 		System.out.println("i1.a()");
