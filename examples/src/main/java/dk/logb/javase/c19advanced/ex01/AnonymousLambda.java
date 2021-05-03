@@ -1,4 +1,4 @@
-package dk.logb.javase.c18advanced.ex01;
+package dk.logb.javase.c19advanced.ex01;
 
 import java.util.Arrays;
 import java.util.Collections;

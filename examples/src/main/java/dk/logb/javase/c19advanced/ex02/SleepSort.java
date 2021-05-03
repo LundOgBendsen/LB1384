@@ -1,4 +1,4 @@
-package dk.logb.javase.c18advanced.ex02;
+package dk.logb.javase.c19advanced.ex02;
 /**
  * Demonstrates how to (in a silly way) sort integers given as input
  *
