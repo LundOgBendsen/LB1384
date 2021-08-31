@@ -14,7 +14,7 @@ public class ProvokeMemoryErrorV2 {
 		System.out.println("Start filling the list with objects!");
 		while (true) {
 			try {
-				c.add(new Integer[1000000]);
+				c.add(new Integer[10000000]);
 			} catch (OutOfMemoryError e) {
 				c.clear();
 				System.out.println(e + "\nJust cleared the list!");

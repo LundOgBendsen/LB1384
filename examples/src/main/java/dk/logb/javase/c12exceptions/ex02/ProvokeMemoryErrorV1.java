@@ -10,7 +10,7 @@ public class ProvokeMemoryErrorV1 {
 	public static void main(final String[] args) {
 		Collection<Integer[]> c = new LinkedList<>();
 		while (true) {
-			c.add(new Integer[10000000]);
+			c.add(new Integer[100000000]);
 		}
 	}
 }
