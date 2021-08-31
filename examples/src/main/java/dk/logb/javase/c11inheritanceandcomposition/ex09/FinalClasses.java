@@ -6,7 +6,7 @@ package dk.logb.javase.c11inheritanceandcomposition.ex09;
 public class FinalClasses {
 }
 
-final class FinalSuperClassF {
+final class FinalSuperClass {
 }
 
 //class ImpossibleSubClass extends FinalSuperClass {
