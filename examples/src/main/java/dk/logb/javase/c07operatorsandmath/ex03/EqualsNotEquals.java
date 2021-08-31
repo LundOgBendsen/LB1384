@@ -24,7 +24,7 @@ public class EqualsNotEquals {
 		System.out.println("i1 == i2 "+(i1 == i2)); // true
 		System.out.println("i1 == i3 "+(i1 == i3)); // false
 		System.out.println("i4 == i3 "+(i4 == i3)); // false
-		System.out.println("i1.equals(i2) "+i1.equals(i2)); // true
+		System.out.println("i1.equals(i3) "+i1.equals(i3)); // true
 		
 		
 	}
