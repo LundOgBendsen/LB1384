@@ -1,5 +1,5 @@
 /*
- * L�sning p� �velse 10 - Indlejrede l�kker (1)
+ * Solution - for loops
  */
 package c08loop1.use.loops;
 
@@ -11,7 +11,7 @@ public class StarPrinterUsingForLoop {
 	}
 
 	private static int askUserForTriangleHeight() {
-		System.out.println("Hvor h�j skal stjernen v�re?");
+		System.out.println("How high should the triangle be?");
 		String input = Keyboard.readLine();
 		int height = Integer.parseInt(input);
 		return height;
