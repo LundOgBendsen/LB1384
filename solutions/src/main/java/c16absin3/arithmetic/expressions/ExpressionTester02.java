@@ -14,7 +14,7 @@ public class ExpressionTester02 {
 		// e3 = ((3 + 2) + (4 * 3))
 		Expression e3 = new Sum(e1, e2);
 
-		System.out.println("Udtrykket : " + e3);
-		System.out.println("Beregner Java til: " + e3.calculate());
+		System.out.println("Expression : " + e3);
+		System.out.println("Calculated as : " + e3.calculate());
 	}
 }

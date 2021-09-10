@@ -1,4 +1,4 @@
-package c02oop3.define.classes;
+package c02oop4.define.methods;
 
 /**
  * Models a Person as an object with first name, last name and birth year 

@@ -23,7 +23,7 @@ public class ExpressionTester01 {
 
         /* And since the Sum object s3 references also is an expression, we can give it to a new Sum */
         Sum s4 = new Sum(new Number(2), s3);
-        System.out.println("Udtrykket : " + s4);
-        System.out.println("Beregner Java til: " + s4.calculate());
+        System.out.println("Expression : " + s4);
+        System.out.println("Calculated as : " + s4.calculate());
     }
 }

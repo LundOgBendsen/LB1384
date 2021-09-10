@@ -3,6 +3,9 @@ package c09arr2.checkers.club;
 import java.util.ArrayList;
 import java.util.Collections;
 
+/**
+ * A membership system for a checkers club that uses ArrayList
+ */
 public class CheckersClub {
 	private static final int NUM_BOARDS = 4;
 	private String name;
@@ -16,6 +19,29 @@ public class CheckersClub {
 			boards.add("None");
 		}
 	}
+
+	public void addMember(String member) {
+		if (member == null) {
+			return;
+		}
+		members.add(member);
+		Collections.sort(members);
+	}
+	
+	
+
+	
+	public void removeMember(String member) {
+		members.remove(member);
+		removeFromBoards(member);
+	}
+		
+
+	
+	
+
+	
+	
 	public void addBoardPosition(String member, int position) {
 		if(position < 1 || position > NUM_BOARDS) {
 			System.out.println("Bad position: "+position);
@@ -29,24 +55,22 @@ public class CheckersClub {
 	}
 	
 	
-	public void addMember(String member) {
-		if (member == null) {
-			return;
-		}
-		members.add(member);
-		Collections.sort(members);
-	}
-	public void removeMember(String member) {
-		members.remove(member);
-		removeFromBoards(member);
-	}
-		
+
+	
+	
+	
+	
+	
+	
+	
 	public void removeFromBoards(String member) {
 		if (boards.contains(member)) {
 			boards.set(boards.indexOf(member), "None");			
 		}
 	}
 
+
+	
 	@Override
 	public String toString() {
 		return "CheckersClub [name=" + name + ", members=" + members + ", boards=" + boards + "]";

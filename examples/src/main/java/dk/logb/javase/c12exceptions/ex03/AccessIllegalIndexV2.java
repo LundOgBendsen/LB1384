@@ -14,10 +14,8 @@ public class AccessIllegalIndexV2 {
 		s[1] = " my";
 		s[2] = " friend!\n";
 		try {
-			int n = 0;
-			while (true) {
+			for (int n = 0; n <= 3; n++) {
 				System.out.print(s[n]);
-				n++;
 			}
 		} catch (IndexOutOfBoundsException e) {
 			System.out.println(

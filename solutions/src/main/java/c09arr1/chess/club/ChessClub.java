@@ -2,6 +2,10 @@ package c09arr1.chess.club;
 
 import java.util.Arrays;
 
+
+/**
+ * A membership system for a chess club that uses arrays
+ */
 public class ChessClub {
 	private static final int NUM_BOARDS = 4;
 	private String name;
@@ -13,25 +17,8 @@ public class ChessClub {
 		this.members = members;
 	}
 	
-	public void addBoardPosition(String member, int position) {
-		if(position < 1 || position > boards.length) {
-			System.out.println("Bad position: "+position);
-			return;
-		}
-		if (!isMember(member)) {
-			System.out.println("Not a member: "+ member);
-			return;
-		}
-		boards[position - 1] = member;
-	}
 	
-	public void removeFromBoards(String member) {
-		for (int i = 0; i < boards.length; i++) {
-			if (boards[i].equals(member)) {
-				boards[i] = null;
-			}
-		}
-	}
+	
 	
 	public void addMember(String member) {
 		if (member == null) {
@@ -55,6 +42,18 @@ public class ChessClub {
 		removeFromBoards(member);
 	}
 		
+	public void addBoardPosition(String member, int position) {
+		if(position < 1 || position > boards.length) {
+			System.out.println("Bad position: "+position);
+			return;
+		}
+		if (!isMember(member)) {
+			System.out.println("Not a member: "+ member);
+			return;
+		}
+		boards[position - 1] = member;
+	}
+
 	private boolean isMember(String member) {
 		for (int i = 0; i < members.length; i++) {
 			if (members[i].equals(member)) {
@@ -64,6 +63,14 @@ public class ChessClub {
 		return false;
 	}
 
+	public void removeFromBoards(String member) {
+		for (int i = 0; i < boards.length; i++) {
+			if (boards[i].equals(member)) {
+				boards[i] = null;
+			}
+		}
+	}
+	
 	@Override
 	public String toString() {
 		return "ChessClub [name=" + name + ", members=" + Arrays.toString(members) + ", boards="
