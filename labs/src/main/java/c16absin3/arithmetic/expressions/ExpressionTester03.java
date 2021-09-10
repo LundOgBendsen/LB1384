@@ -1,0 +1,20 @@
+package c16absin3.arithmetic.expressions;
+
+public class ExpressionTester03 {
+
+    public static void main(String[] args) {
+        
+        // Calculation of the Expression :
+        // (324.0 - (((3.0 + 4.0) * 2.0) / 5.0))
+        
+/*
+        Expression e1 = new Sum(new Number(3), new Number(4));
+        Expression e2 = new Multiplication(e1, new Number(2));
+        Expression e3 = new Division(e2, new Number(5));
+        Expression e4 = new Subtraction(new Number(324), e3);
+
+        System.out.println("Expression : " + e4);
+        System.out.println("Calculated as : " + e4.calculate());
+*/        
+    }
+}
