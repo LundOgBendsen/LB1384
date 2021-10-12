@@ -34,6 +34,20 @@ public class TestBigDecimal {
 		bd = new BigDecimal(s);
 		System.out.println("Print the value of a BigDecimal based on s");
 		System.out.println(bd);
-				
+		
+		/* Sum up 0.1 10 million times using float, double and BigDecimal */
+		float sum = 0;
+		double dsum = 0;
+		bd = new BigDecimal(0);
+		BigDecimal oneTenth =  new BigDecimal("0.1");
+		for (int i = 0; i < 10_000_000; i++) {
+			sum += 0.1f;
+			dsum += 0.1;
+			bd = bd.add(oneTenth);
+		}
+		System.out.println("Ten million times 0.1f: "+sum);
+		System.out.println("Ten million times 0.1: "+dsum);
+		System.out.println("Ten million times BigDecimal(\"0.1\": "+bd);
+		
 	}
 }
