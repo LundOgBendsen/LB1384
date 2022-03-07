@@ -14,16 +14,16 @@ public class ExceptionTypes {
 		try {
 			System.out.println(file.getCanonicalPath());
 		} catch (IOException e) {
-			System.out.println("Stien findes ikke");
+			System.out.println("Path not found");
 		}
 		System.out.flush();
 
 		/* The method parseInt might throw a NumberFormatExceptions which is an
 		 * unchecked exception so we don't need to handle it. If it does occur,
-		 * the program will print an error mesage and terminate.
+		 * the program will print an error message and terminate.
 		 */
 		int j = Integer.parseInt("123");
-		int k = Integer.parseInt("HEJ");
+		int k = Integer.parseInt("HELLO");
 		System.out.println(j + k);
 
 	}

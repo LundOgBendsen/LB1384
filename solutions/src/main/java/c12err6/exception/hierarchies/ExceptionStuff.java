@@ -71,7 +71,7 @@ public class ExceptionStuff {
 	static int n = 1; // herefter 2, 3 eller 4.
 
 	public static void main(final String[] args) {
-		System.out.println("Starter main");
+		System.out.println("Starting main");
 		try {
 			switch (n) {
 			case 4:
@@ -83,45 +83,45 @@ public class ExceptionStuff {
 			}
 			a();
 		} catch (MyException e) {
-			System.out.println("Greb MyException i main");
+			System.out.println("Caught a MyException in main");
 		} catch (Exception e) {
-			System.out.println("Greb Exception i main");
+			System.out.println("Caught an Exception in main");
 		} finally {
-			System.out.println("Finally i main");
+			System.out.println("Finally in main");
 		}
 		System.out.println("Afslutter main");
 	}
 
 	static void a() throws Exception {
-		System.out.println("Starter a");
+		System.out.println("Start a");
 		if (throwException == true) {
-			System.out.println("Kaster Exception i a");
+			System.out.println("Throw Exception in a");
 			throw new Exception();
 		}
 		b();
-		System.out.println("Afslutter a");
+		System.out.println("End a");
 	}
 
 	static void b() throws MyException {
-		System.out.println("Starter b");
+		System.out.println("Start b");
 		if (catchMyException == true) {
 			try {
 				c();
 			} catch (MyException e) {
-				System.out.println("Greb MyException i b");
+				System.out.println("Caught a MyException in b");
 			}
 		} else {
 			c();
 		}
-		System.out.println("Afslutter b");
+		System.out.println("End b");
 	}
 
 	static void c() throws MyException {
-		System.out.println("Starter c");
+		System.out.println("Start c");
 		if (throwMyException == true) {
-			System.out.println("Kaster MyException i c");
+			System.out.println("Throwing MyException in c");
 			throw new MyException();
 		}
-		System.out.println("Afslutter c");
+		System.out.println("End c");
 	}
 }

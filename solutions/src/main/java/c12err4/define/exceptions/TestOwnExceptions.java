@@ -8,17 +8,17 @@ public class TestOwnExceptions {
 		try {
 			throwMyCheckedException();
 		} catch (MyCheckedException e) {
-			System.out.println("Greb en MyCheckedException");
+			System.out.println("Caught a MyCheckedException");
 		}
 
 		try {
-			System.out.println("Kalder throwMyUncheckedException i try...catch");
+			System.out.println("calling throwMyUncheckedException in try...catch");
 			throwMyUncheckedException();
 		} catch (MyUncheckedException e) {
-			System.out.println("Greb en MyUncheckedException");
+			System.out.println("Caught a MyUncheckedException");
 		}
 
-		System.out.println("Kalder throwMyUncheckedException uden try...catch");
+		System.out.println("Calling throwMyUncheckedException without try...catch");
 		throwMyUncheckedException();
 	}
 

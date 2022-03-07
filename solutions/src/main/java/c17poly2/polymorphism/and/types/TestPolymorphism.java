@@ -9,12 +9,12 @@ public class TestPolymorphism {
 		// x.c();
 
 		// //////////////////////////////////
-		// (b) Compile error. F is not a tubtype of A.
+		// (b) Compile error. F is not a sub type of A.
 		// A x = new F();
 		// x.a();
 
 		// //////////////////////////////////
-		// (c) Prints 3.14 (not considered good practise).
+		// (c) Prints 3.14 (not considered good practice).
 		// F x = new F();
 		// System.out.println(x.PI);
 
@@ -24,7 +24,7 @@ public class TestPolymorphism {
 		// System.out.println(x.PI);
 
 		// //////////////////////////////////
-		// (e) Runtime error. An instnce of E cannot be cast to F.
+		// (e) Runtime error. An instance of E cannot be cast to F.
 		// B x = new E();
 		// F y = (F) x;
 		// y.a();
@@ -41,12 +41,12 @@ public class TestPolymorphism {
 		// x.c();
 
 		// //////////////////////////////////
-		// (h) Compile error. C is abstrakt and cannot be instantiated.
+		// (h) Compile error. C is abstract and cannot be instantiated.
 		// A x = new C();
 		// x.a();
 
 		// //////////////////////////////////
-		// (i) Compile error. Object does not know methos c
+		// (i) Compile error. Object does not know methods c
 		// Object x = new D();
 		// x.c();
 

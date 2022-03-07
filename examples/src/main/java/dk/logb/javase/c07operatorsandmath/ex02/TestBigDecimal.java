@@ -47,7 +47,7 @@ public class TestBigDecimal {
 		}
 		System.out.println("Ten million times 0.1f: "+sum);
 		System.out.println("Ten million times 0.1: "+dsum);
-		System.out.println("Ten million times BigDecimal(\"0.1\": "+bd);
+		System.out.println("Ten million times BigDecimal(\"0.1\"): "+bd);
 		
 	}
 }

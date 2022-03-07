@@ -4,10 +4,10 @@ public class TestOwnExceptions {
 
 	public static void main(String[] args) {
 
-		System.out.println("Kalder throwMyCheckedException");
+		System.out.println("Calling throwMyCheckedException");
 		throwMyCheckedException();
 
-		System.out.println("Kalder throwMyUncheckedException");
+		System.out.println("Calling throwMyUncheckedException");
 		throwMyUncheckedException();
 	}
 
