@@ -3,7 +3,7 @@ package c04garb1.monitor.gc;
 public class PersonTest {
 
 	public static void main(final String[] args) {
-		System.out.println("main metod: start");
+		System.out.println("main method: start");
 
 		Person p01 = new Person("Rasmus", "Lund", 1973);
 		System.out.println(p01);
@@ -22,6 +22,6 @@ public class PersonTest {
 
 		System.out.println("number of persons " + Person.getTotalNumberOfPersons());
 
-		System.out.println("main metod: slut");
+		System.out.println("main method: end");
 	}
 }
