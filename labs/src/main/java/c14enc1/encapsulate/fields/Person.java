@@ -1,5 +1,7 @@
 package c14enc1.encapsulate.fields;
 
+import java.time.LocalDate;
+
 public class Person {
 
     public String firstName = "Unknown";
@@ -31,9 +33,7 @@ public class Person {
     }
 
     private static int getCurrentYear() {
-        java.util.Calendar c = java.util.Calendar.getInstance();
-        int currentYear = c.get(java.util.Calendar.YEAR);
-        return currentYear;
+        return LocalDate.now().getYear();
     }
 
     public void setFullName(String firstName, String lastName) {

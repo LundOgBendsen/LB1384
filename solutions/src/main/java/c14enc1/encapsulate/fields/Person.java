@@ -1,5 +1,7 @@
 package c14enc1.encapsulate.fields;
 
+import java.time.LocalDate;
+
 public class Person {
 
 	/* Make sure that the following fields cannot be changed from outside this class */
@@ -88,9 +90,7 @@ public class Person {
 	}
 
 	private static int getCurrentYear() {
-		java.util.Calendar c = java.util.Calendar.getInstance();
-		int currentYear = c.get(java.util.Calendar.YEAR);
-		return currentYear;
+		return LocalDate.now().getYear();
 	}
 
 	public static int getTotalNumberOfPersons() {

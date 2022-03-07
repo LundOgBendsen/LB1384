@@ -1,5 +1,7 @@
 package c04garb1.monitor.gc;
 
+import java.time.LocalDate;
+
 public class Person {
 	public String firstName = "Unknown";
 	public String lastName = "Unknown";
@@ -29,9 +31,7 @@ public class Person {
 	}
 
 	private static int getCurrentYear() {
-		java.util.Calendar c = java.util.Calendar.getInstance();
-		int currentYear = c.get(java.util.Calendar.YEAR);
-		return currentYear;
+		return LocalDate.now().getYear();
 	}
 
 	public void setFullName(final String firstName, final String lastName) {
