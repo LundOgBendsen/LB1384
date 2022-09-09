@@ -19,11 +19,11 @@ public class StringMath {
 			if ("exit".equalsIgnoreCase(line)) {
 				break;
 			}
-			parseAndPrintResult(line);
+			System.out.println(parseAndCalculate(line));
 		}
 	}
 
-	private static void parseAndPrintResult(String line) {
+	private static double parseAndCalculate(String line) {
 		char operator = getOperator(line);
 		if (operator == UNKNOWN) {
 			System.out.println("Cannot parse the expression");
@@ -31,8 +31,9 @@ public class StringMath {
 			double leftSide = getLeftSide(operator, line);
 			double rightSide = getRightSide(operator, line);
 			double result = calculate(operator, leftSide, rightSide);
-			System.out.println("The result is " + result);
+			return result;
 		}
+		return Double.NaN;
 	}
 
 	private static char getOperator(String line) {
