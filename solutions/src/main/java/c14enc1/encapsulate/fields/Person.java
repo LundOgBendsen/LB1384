@@ -45,7 +45,7 @@ public class Person {
 			throw new NullPointerException(msg);
 		}
 		if (firstName.equals("")) {
-			String msg = "Parameter firstName must not be null";
+			String msg = "Parameter firstName must not be empty";
 			throw new IllegalArgumentException(msg);
 		}
 		this.firstName = firstName;
@@ -62,7 +62,7 @@ public class Person {
 			throw new NullPointerException(msg);
 		}
 		if (lastName.equals("")) {
-			String msg = "Parameter lastName must not be null";
+			String msg = "Parameter lastName must not be empty";
 			throw new IllegalArgumentException(msg);
 		}
 		this.lastName = lastName;

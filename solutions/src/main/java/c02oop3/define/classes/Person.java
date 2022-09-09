@@ -11,7 +11,7 @@ public class Person {
 	/* lastName is initialized to Unknown as default */
 	public String lastName = "Unknown";
 
-	/* birthYear is initialized to -1n as default */
+	/* birthYear is initialized to -1 as default */
 	public int birthYear = -1;
 	
 	public static int totalNumberOfPersons; 				//(c)

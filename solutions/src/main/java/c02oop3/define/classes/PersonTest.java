@@ -22,8 +22,8 @@ public class PersonTest { // (a)
 		System.out.println("p02.lastName is " + p02.lastName); // (b)
 		System.out.println("p02.birthYear is " + p02.birthYear); // (b)
 
-		System.out.println("main-metode: slut"); // (a)
-
 		System.out.println("antal objekter " + Person.totalNumberOfPersons); // (c)
+
+		System.out.println("main-metode: slut"); // (a)
 	} // (a)
 } // (a)

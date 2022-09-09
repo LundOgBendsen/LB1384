@@ -16,7 +16,7 @@ import java.util.Locale;
 public class CharacterCollation {
 	public static void main(String[] args) {
 		/* Create a list of strings that we will want to sort */
-		List<String> a = Arrays.asList("Årslev", "Ejby", "Ésbjerg", "Exby", "Aarhus", "Ålborg", "Asnæs");
+		List<String> a = Arrays.asList("Årslev", "Ejby", "Ésbjerg", "Exby", "Aarhus", "Ålby", "Asnæs");
 		
 		/* Sort the strings using the default collation and print them */
 		Collections.sort(a);
