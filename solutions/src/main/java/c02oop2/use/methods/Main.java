@@ -24,7 +24,7 @@ public class Main {
 
 			DrivingArea heathy = new DrivingArea(10, 10);
 			printAndWait("DrivingArea heathy = new DrivingArea( 10, 10 );");
-			System.out.println("HEJ");
+
 			heathy.setName("HEATHY");
 			printAndWait("heathy.setName( \"HEATHY\" );");
 
