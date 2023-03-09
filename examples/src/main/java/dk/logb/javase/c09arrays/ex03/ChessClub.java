@@ -1,25 +1,24 @@
-package c09arr2.checkers.club;
+package dk.logb.javase.c09arrays.ex03;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.Collections;
 
+
 /**
- * A membership system for a checkers club that uses ArrayList
+ * A membership system that uses arrays and ArrayList correctly
  */
-public class CheckersClub {
+public class ChessClub {
 	private static final int NUM_BOARDS = 4;
 	private String name;
 	private ArrayList<String> members;
-	private ArrayList<String> boards = new ArrayList<String>();
+	private String[] boards = new String[NUM_BOARDS];
 	
-	public CheckersClub(String name, ArrayList<String> members) {
+	public ChessClub(String name, ArrayList<String> members) {
 		this.name = name;
-		this.members = members;
-		for (int i = 0; i < NUM_BOARDS; i++) {
-			boards.add("None");
-		}
+		this.members = new ArrayList<>(members);
 	}
-
+	
 	public void addMember(String member) {
 		if (member == null) {
 			return;
@@ -28,20 +27,11 @@ public class CheckersClub {
 		Collections.sort(members);
 	}
 	
-	
-
-	
 	public void removeMember(String member) {
 		members.remove(member);
 		removeFromBoards(member);
 	}
 		
-
-	
-	
-
-	
-	
 	public void addBoardPosition(String member, int position) {
 		if(position < 1 || position > NUM_BOARDS) {
 			System.out.println("Bad position: "+position);
@@ -51,28 +41,19 @@ public class CheckersClub {
 			System.out.println("Not a member: "+ member);
 			return;
 		}
-		boards.set(position - 1, member);
+		boards[position - 1] = member;
 	}
-	
-	
 
-	
-	
-	
-	
-	
-	
-	
 	public void removeFromBoards(String member) {
-		if (boards.contains(member)) {
-			boards.set(boards.indexOf(member), "None");			
+		for (int i = 0; i < boards.length; i++) {
+			if (boards[i].equals(member)) {
+				boards[i] = null;
+			}
 		}
 	}
 
-
-	
 	@Override
 	public String toString() {
-		return "CheckersClub [name=" + name + ", members=" + members + ", boards=" + boards + "]";
+		return "ChessClub [name=" + name + ", members=" + members + ", boards=" + Arrays.toString(boards) + "]";
 	}
 }

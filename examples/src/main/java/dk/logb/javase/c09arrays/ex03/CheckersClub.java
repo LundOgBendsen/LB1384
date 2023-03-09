@@ -1,25 +1,26 @@
-package c09arr1.chess.club;
+package dk.logb.javase.c09arrays.ex03;
 
+import java.util.ArrayList;
 import java.util.Arrays;
 
-
 /**
- * A membership system for a chess club that uses arrays
+ * A membership system that uses ArrayList and arrays badly
  */
-public class ChessClub {
+public class CheckersClub {
 	private static final int NUM_BOARDS = 4;
 	private String name;
 	private String[] members;
-	private String[] boards = new String[NUM_BOARDS];
+	private ArrayList<String> boards = new ArrayList<String>();
 	
-	public ChessClub(String name, String[] members) {
+	public CheckersClub(String name, String[] members) {
 		this.name = name;
-		this.members = members;
+		this.members = new String[members.length];
+		System.arraycopy(members, 0, this.members, 0, members.length);
+		for (int i = 0; i < NUM_BOARDS; i++) {
+			boards.add("None");
+		}
 	}
-	
-	
-	
-	
+
 	public void addMember(String member) {
 		if (member == null) {
 			return;
@@ -29,8 +30,8 @@ public class ChessClub {
 		System.arraycopy(old, 0, members, 0, old.length);
 		members[members.length-1] = member;
 		Arrays.sort(members);
-	}
-	
+	}	
+
 	public void removeMember(String member) {
 		String[] old = members;
 		members = new String[0];		
@@ -41,9 +42,9 @@ public class ChessClub {
 		}
 		removeFromBoards(member);
 	}
-		
+
 	public void addBoardPosition(String member, int position) {
-		if(position < 1 || position > boards.length) {
+		if(position < 1 || position > NUM_BOARDS) {
 			System.out.println("Bad position: "+position);
 			return;
 		}
@@ -51,9 +52,9 @@ public class ChessClub {
 			System.out.println("Not a member: "+ member);
 			return;
 		}
-		boards[position - 1] = member;
+		boards.set(position - 1, member);
 	}
-
+	
 	private boolean isMember(String member) {
 		for (int i = 0; i < members.length; i++) {
 			if (members[i].equals(member)) {
@@ -61,20 +62,16 @@ public class ChessClub {
 			}
 		}
 		return false;
-	}
-
+	}	
+	
 	public void removeFromBoards(String member) {
-		for (int i = 0; i < boards.length; i++) {
-			if (boards[i].equals(member)) {
-				boards[i] = null;
-			}
+		if (boards.contains(member)) {
+			boards.set(boards.indexOf(member), "None");			
 		}
 	}
-	
+
 	@Override
 	public String toString() {
-		return "ChessClub [name=" + name + ", members=" + Arrays.toString(members) + ", boards="
-				+ Arrays.toString(boards) + "]";
+		return "CheckersClub [name=" + name + ", members=" + Arrays.toString(members) + ", boards=" + boards + "]";
 	}
-
 }
