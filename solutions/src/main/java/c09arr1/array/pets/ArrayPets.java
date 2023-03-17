@@ -12,8 +12,10 @@ public class ArrayPets {
 	private String[] cats = new String[0];
 	private String[] dogs = new String[NUM_CAGES];
 	
-	public ArrayPets(String name) {
+	public ArrayPets(String name, String[] cats) {
 		this.name = name;
+		this.cats = new String[cats.length];
+		System.arraycopy(cats, 0, this.cats, 0, cats.length);
 	}
 
 	public void addCat(String cat) {

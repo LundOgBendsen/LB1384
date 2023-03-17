@@ -2,6 +2,7 @@ package c09arr2.list.pets;
 
 import java.util.ArrayList;
 import java.util.Collections;
+import java.util.List;
 
 /**
  * A pet sanctuary uses ArrayList
@@ -12,8 +13,9 @@ public class ListPets {
 	private ArrayList<String> cats = new ArrayList<String>();;
 	private ArrayList<String> dogs = new ArrayList<String>();
 	
-	public ListPets(String name) {
+	public ListPets(String name, List<String> cats) {
 		this.name = name;
+		this.cats.addAll(cats);
 		for (int i = 0; i < NUM_CAGES; i++) {
 			dogs.add("None");
 		}

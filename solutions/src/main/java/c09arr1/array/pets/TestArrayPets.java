@@ -2,11 +2,12 @@ package c09arr1.array.pets;
 
 public class TestArrayPets {
 	public static void main(String[] args) {
-		ArrayPets cc = new ArrayPets("Array Pets");
+		String[] cats = {"Aramis","Bettemis"};
+		ArrayPets cc = new ArrayPets("Array Pets", cats);
 		System.out.println(cc);
-		cc.addCat("Amalie");
+		cc.addCat("Cicero");
 		System.out.println(cc);
-		cc.addCat("Bert");
+		cc.addCat("Derp");
 		System.out.println(cc);
 		cc.addDog("Adam", 1);
 		System.out.println(cc);

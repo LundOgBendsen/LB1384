@@ -1,12 +1,14 @@
 package c09arr2.list.pets;
 
+import java.util.List;
+
 public class TestListPets {
 	public static void main(String[] args) {
-		ListPets cc = new ListPets("List Pets");
+		ListPets cc = new ListPets("List Pets", List.of("Aramis", "Bettemis"));
 		System.out.println(cc);
-		cc.addCat("Amalie");
+		cc.addCat("Cicero");
 		System.out.println(cc);
-		cc.addCat("Bert");
+		cc.addCat("Derp");
 		System.out.println(cc);
 		cc.addDog("Adam", 1);
 		System.out.println(cc);
