@@ -23,9 +23,3 @@ public enum TrafficSignal {
 	}
 }
 
-class Main {
-	public static void main(final String[] args) {
-		System.out.println(TrafficSignal.RED.description);
-		System.out.println(TrafficSignal.RED.isNextTo(TrafficSignal.YELLOW));
-	}
-}
