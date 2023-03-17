@@ -1,13 +1,8 @@
 package dk.logb.javase.c17polymorphism.ex03;
 
 import java.util.ArrayList;
-/*
- * Demonstrates the ease of writing out objects with polymorphy and toString()
- */
-import java.util.Vector;
 
-@SuppressWarnings("all")
-public class ToStringWithPolymorphy {
+public class ToStringWithPolymorphism {
 	public static void main(final String[] args) {
 		ArrayList<Vehicle> a = new ArrayList<>();
 		a.add(new Car(200));

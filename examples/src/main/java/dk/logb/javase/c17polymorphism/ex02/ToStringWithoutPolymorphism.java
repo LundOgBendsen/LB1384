@@ -3,7 +3,7 @@ package dk.logb.javase.c17polymorphism.ex02;
 import java.util.ArrayList;
 
 @SuppressWarnings("all")
-public class ToStringWithoutPolymorphy {
+public class ToStringWithoutPolymorphism {
 	public static void main(final String[] args) {
 		ArrayList a = new ArrayList();
 		a.add(new Car(200));
