@@ -19,6 +19,7 @@ public class Main {
 			controllerFrame = new ControllerFrame();
 
 			printAndWait("READY TO RUN YOUR CODE...");
+			Car c1 = new Car("Enyak");
 
 			// ///////////////////////////////////
 			// INSERT YOUR CODE AFTER THIS LINE //
